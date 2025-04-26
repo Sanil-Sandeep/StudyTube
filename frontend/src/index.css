@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: theme('colors.PrimaryColor');
+  color: theme('colors.surface.dark');
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Modern UI Elements */
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-DarkColor to-ExtraDarkColor text-white px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-DarkColor/50;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-DarkColor border border-DarkColor/20 px-4 py-2 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-DarkColor/50;
+  }
+  
+  .btn-accent {
+    @apply bg-gradient-to-r from-accent-1 to-accent-3 text-white px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-accent-1/50;
+  }
+  
+  .card {
+    @apply bg-surface-light rounded-xl shadow-soft border border-gray-100 transition-shadow hover:shadow-md;
+  }
+  
+  .card-hover {
+    @apply transform transition-transform duration-300 hover:-translate-y-1;
+  }
+  
+  .glass-effect {
+    @apply bg-white/80 backdrop-blur-md bg-opacity-80 border border-white/20;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-DarkColor/50 focus:border-DarkColor transition-all;
+  }
+}
+
+/* Animation utilities */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-gradient-slow {
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+/* Modern scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: theme('colors.surface.mild');
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: theme('colors.SecondaryColor');
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: theme('colors.DarkColor');
+}
